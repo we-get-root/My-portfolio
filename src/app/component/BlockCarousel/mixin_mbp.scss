@@ -1,0 +1,103 @@
+@mixin root-style--main-block-portfolio {
+  width: 97%;
+  height: 100%;
+  overflow: hidden;
+  grid-column: 2 / 5;
+  position: relative;
+}
+@mixin nested-style--wrap-carousel-item { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 300%;
+  height: 100%;
+  display: grid;
+  position: absolute;
+  grid-gap: 20px;
+  transition: all 0.5s ease;
+  &__page-carousel,
+  .--pc {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: 190px;
+    &__frame-card,
+    .--fc {
+      width: 100%;
+      height: 100%;
+      background: $COLOR2;
+      position: relative;
+      margin: 5px;
+      &__main-card {
+        width: 100%;
+        height: 100%;
+        background: $COLOR;
+        position: absolute;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        animation: hide--hover__main-card 0.3s ease both;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        &:hover {
+          animation: show--hover__main-card 0.3s ease both;
+        }
+      }
+    }
+  }
+}
+@mixin nested-style--block-button-carousel {
+  margin: auto;
+  bottom: 40px;
+  width: 300px;
+  height: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  position: absolute;
+  margin-left: 33.8%;
+  button {
+    outline: none;
+    border: none;
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+@keyframes show--hover__main-card {
+  from {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: -7px;
+    left: -7px;
+  }
+}
+
+@keyframes hide--hover__main-card {
+  from {
+    top: -7px;
+    left: -7px;
+  }
+  to {
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes show--main-block-portfolio {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

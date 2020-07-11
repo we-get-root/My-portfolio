@@ -1,0 +1,141 @@
+@mixin header-nav-block__logotype {
+  position: absolute;
+  width: 100px;
+  text-align: center;
+  background: $COLOR;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 100;
+  // box-shadow: 10px 2px 10px -6px rgba(0, 0, 0, 0.6);
+  h1 {
+    margin: 0;
+    font-family: "BebasNeue-Regular", sans-serif;
+    color: $COLOR2;
+    font-weight: 400;
+  }
+}
+
+@mixin header-nav-block__nav-menu {
+  display: grid;
+  grid-auto-flow: column;
+  list-style: none;
+  margin: 30px;
+  padding: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin: 10px;
+    font-family: "BebasNeue-Regular", sans-serif;
+    // font-size: 30px;
+    position: relative;
+    cursor: pointer;
+    white-space: normal;
+    &:hover {
+      &::before {
+        content: "";
+        height: 2px;
+        bottom: 5px;
+        background: $COLOR;
+        position: absolute;
+        animation: li-hover-active-line 0.5s ease both;
+      }
+    }
+  }
+}
+@mixin header-nav-block__slider-switcher {
+  display: block;
+  margin: auto;
+  grid-column: 2;
+  grid-row: 6;
+  width: 20px;
+  height: 40px;
+  border: 3px solid $COLOR;
+  border-radius: 10em;
+  position: relative;
+  padding: 5px;
+  transition: all 1s ease;
+  &__circle-switcher {
+    animation: switcher-slider_circle-switcher infinite 3s ease;
+    position: absolute;
+    padding: 10px;
+    background: $COLOR;
+    border-radius: 10em;
+  }
+}
+
+
+@keyframes header-nav-block-logotype {
+  0% {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    font-size: 45px;
+    height: 100%;
+    width: 55px;
+    left: 0;
+    top: 0;
+  }
+  50% {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    font-size: 45px;
+    height: 100px;
+    width: 100px;
+    left: 0;
+    top: 0;
+  }
+  100% {
+    font-size: 60px;
+    height: 100px;
+    left: 46.7%;
+    top: 0;
+  }
+}
+
+@keyframes header-block__logotype__active-nav-menu {
+  0% {
+    font-size: 60px;
+    height: 100px;
+    left: 46.7%;
+    top: 0;
+  }
+  50% {
+    font-size: 45px;
+    height: 100px;
+    width: 55px;
+    left: 0;
+    top: 0;
+  }
+  90% {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  100% {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 45px;
+    height: 100%;
+    width: 55px;
+    left: 0;
+    top: 0;
+  }
+}
+
+
+@keyframes li-hover-active-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes switcher-slider_circle-switcher {
+  from {
+    top: 5px;
+  }
+  to {
+    bottom: 5px;
+  }
+}
+
