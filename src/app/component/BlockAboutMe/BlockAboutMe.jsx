@@ -1,8 +1,21 @@
 import React from 'react';
 
-function BlockAboutMe({ ...props }) {
+function BlockAboutMe({ currentBlockAboutMe, ...props }) {
   return (
     <>
+      <div ref={currentBlockAboutMe} className={`--mbd__header-block-about --hba`}>
+        <div className={`--hba__wrapper-my-photo`}></div>
+        <div className={`--hba__wrapper-description`}>
+          <h2>dmitry tretyakov</h2>
+          <ul>
+            <li>Родился 15 марта 1998г. (22 года)</li>
+            <li>Проживаю в Москва</li>
+            <li>Желаемая должность Front-end developer</li>
+            <li>Готов работать удаленно</li>
+          </ul>
+        </div>
+      </div>
+
       <div className={`--mbd__row-text-description`}>
         <h2>ABOUT ME</h2>
         <p>Вкратце о себе: начинал самостоятельное изучения веб-разработки 5 лет назад в ВУЗе. До этого момента это было больше как хобби, которым я занимался в свободно время от основной работы. Разрабатывал небольшие сайты для знакомых, иногда брал заказы на фриланс биржах. Сейчас я понимаю, что в моих знаниях есть пробелы, которые тяжело восполнить на домашних проектах. Хочу разрабатывать приложения в команде, развиваться и расти профессионально.</p>

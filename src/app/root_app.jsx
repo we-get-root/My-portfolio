@@ -16,7 +16,6 @@ import {
 
 function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ...props }) {
 
-  const currentBlockAboutMe = useRef(null)
   const listAllSection = {
     startRender: false,
     renderBlockAboutMe: false,
@@ -27,7 +26,8 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     renderBlockContact: false,
     renderBlockWork: false,
   }
-
+  
+  const currentBlockAboutMe = useRef(null)
   const [renderElement, setRenderElement] = useState(listAllSection)
 
   const switchElement = (whatElementSwitch) => {
@@ -42,8 +42,8 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
       } else continue;
     }
   }
-  const handlerBlockAddEffectParallax = (target) => {
-    currentBlockAboutMe.current.style.top = `${target.scrollTop / 2}px`
+  const handlerBlockAddEffectParallax = (event) => {
+    currentBlockAboutMe.current.style.top = `${event.target.scrollTop / 2}px`
   }
 
   useEffect(() => {
@@ -107,22 +107,8 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
 
         <span className={`--ssd__separator-header`}></span>
 
-        {renderBlockAboutMe ? <div onScroll={(event) => handlerBlockAddEffectParallax(event.target)} className={`--ssd__main-block-description --mbd`}>
-
-          <div ref={currentBlockAboutMe} className={`--mbd__header-block-about --hba`}>
-            <div className={`--hba__wrapper-my-photo`}></div>
-            <div className={`--hba__wrapper-description`}>
-              <h2>dmitry tretyakov</h2>
-              <ul>
-                <li>Родился 15 марта 1998г. (22 года)</li>
-                <li>Проживаю в Москва</li>
-                <li>Желаемая должность Front-end developer</li>
-                <li>Готов работать удаленно</li>
-              </ul>
-            </div>
-          </div>
-
-          <BlockAboutMe />
+        {renderBlockAboutMe ? <div onScroll={handlerBlockAddEffectParallax} className={`--ssd__main-block-description --mbd`}> 
+          <BlockAboutMe currentBlockAboutMe={currentBlockAboutMe} />
         </div> : null}
         {renderBlockPortfolio ? <div className={`--ssd__main-block-portfolio --mbp`}>
           <BlockCarousel imageCarousel={imageCarousel} />
@@ -161,7 +147,6 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     </section>
   )
 }
-
 
 
 export default connect((state) => ({

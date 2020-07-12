@@ -4,14 +4,13 @@
   height: 100%;
   display: grid;
   justify-items: end;
-  grid-template-columns: 70px 4fr 9fr;
-  grid-template-rows: 320px auto;
+  grid-template-columns: 4fr 9fr;
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 2;
   &::after {
-    z-index: 2;
+    z-index: 3;
     content: "";
     background: rgba($color: #000000, $alpha: 0.3);
     width: 100%;
@@ -19,41 +18,25 @@
     position: absolute;
   }
 }
-@mixin nested-style--block-user-avatar {
-  width: 200px;
-  height: 200px;
-  background: $COLOR2;
-  border: 2px solid $COLOR;
-  border-radius: 10em;
-  grid-column: 2;
-  z-index: 300;
-  position: relative;
-  overflow: hidden;
-  margin: 20px;
-  grid-row: 1;
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
+
 @mixin nested-style--wrap-title {
-  align-self: end;
-  grid-column: 2;
-  grid-row: 1;
+  align-self: center;
+  text-align: end;
   margin-bottom: 20px;
+  z-index: 4;
   h2 {
     margin: 0;
-    font-family: "BebasNeue-Regular", sans-serif;
+    font-family: "BebasNeue-Regular", sans-serif; 
     color: $COLOR2;
-    font-size: 40px;
+    font-size: 70px;
     font-weight: 400;
     text-align: end;
     margin: 0;
-    line-height: 20px;
+    line-height: 50px;
   }
   span {
-    animation: appears-block-user 1s 2s ease both;
-    color: #909090;
+    animation: appears-block-user 1s 1s ease both;
+    color: #535353;
     font-family: "BebasNeue-Regular", sans-serif;
     font-size: 25px;
   }

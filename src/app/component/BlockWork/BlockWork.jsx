@@ -1,21 +1,38 @@
 import React from 'react';
+import experience from './../../../sours/experience.png';
 
-function BlockWork({...props}) {
+function BlockWork({ ...props }) {
   return (
-    <> 
-      <div className={`--mbw__row-description`}>
-        <h2>studio 17 web-design and developer</h2>
-        <p>Студия занималась разработкой сайтов под ключ, дизайн составление ТЗ продвижение. Я разрабатывал web-страниц  по тз и дизайн проекту, собирал и отдавал готовый сборку. Дальше товарищи маркетологи все делали без меня. Я выполнял только техническую сторону вопроса.</p>
-        <p>Опыт работы 8 месяцев.</p>
-        <p>Пандемия сыграла злую шутку и компанию прикрыли</p>
+    <>
+      <div className={`--mbw__card-description --cd`}>
+        <div className={`--cd__block-description`}>
+          <h2>studio 17 web-design and developer</h2>
+          <ul>
+            <li>Разработка сайтов под ключ</li>
+            <li>Должность младший разработчик</li>
+            <li>Разработка Front-end части по ТЗ</li>
+            <li>Сборка и подготовка проекта</li>
+          </ul>
+        </div>
+        <div className={`--cd__decor-column`}>
+          <img src={experience} alt="decor-img" />
+        </div>
       </div>
-      <div className={`--mbw__row-description`}>
-        <h2>web-agency edward mccain</h2>
-        <p>Веб агенство Эдварда МакКейни. Тот же спектр работ что и на прошлой. Технической задание и дизайн, реализация. Адаптивность верстка и так далее. Тут проекты были чуть по привлекательней, в том плане что</p>
-        <p>Опыт работы 8 месяцев.</p>
-        <p>Пандемия сыграла злую шутку и компанию прикрыли</p>
+      <div className={`--mbw__card-description --cd`}>
+        <div className={`--cd__block-description`}>
+          <h2>web-agency edward mccain</h2>
+          <ul>
+            <li>Разработка сайтов под ключ</li>
+            <li>Должность Front-end developer</li>
+            <li>Разработка Front-end части по ТЗ. Сопровождение</li>
+            <li>Сборка и подготовка проекта</li>
+            <li>Работал удаленно</li>
+          </ul>
+        </div>
+        <div className={`--cd__decor-column`}>
+          <img src={experience} alt="decor-img" />
+        </div>
       </div>
-
     </>
   )
 }

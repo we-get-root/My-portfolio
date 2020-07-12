@@ -138,7 +138,6 @@
       &__card-description,
       .--cd {
         display: grid;
-
         grid-template-columns: 2fr 1fr;
         min-height: 220px;
         border-radius: 10px;
@@ -194,9 +193,63 @@
     &__main-block-work,
     .--mbw {
       @include root-style--main-block-description();
-      &__row-description {
-        padding: 0;
-        @include nested-style--row-text-description();
+      animation: show--main-block-portfolio 1s 0.3s ease both;
+      display: grid;
+      grid-row-gap: 20px;
+      grid-auto-rows: 220px;
+      grid-auto-flow: row;
+      &__card-description,
+      .--cd {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        min-height: 220px;
+        border-radius: 10px;
+        margin: 10px;
+        background: rgba($color: #afafaf, $alpha: 0.3);
+        h2 {
+          font-family: "BebasNeue-Regular", sans-serif;
+          font-size: 40px;
+          margin: 0;
+          padding: 15px;
+          color: $COLOR;
+          padding-bottom: 0;
+        }
+        $round-width: (
+          1: 70%,
+          2: 50%,
+          3: 100%,
+          4: 80%,
+        );
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          padding-left: 5%;
+          li {
+            background: #bfbfbf;
+            color: $COLOR;
+            font-size: 14px;
+            font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
+            margin: 5px;
+            padding-left: 10px;
+            border-radius: 10em;
+            @each $index, $width in $round-width {
+              &:nth-last-child(#{$index}) {
+                width: $width;
+              }
+            }
+          }
+        }
+        &__decor-column {
+          grid-column: 2;
+          z-index: -10;
+          display: block;
+          margin: auto;
+          img {
+            width: 250px;
+            height: auto;
+          }
+        }
       }
     }
     // This block has its own styles, which lie in root block.
@@ -226,13 +279,10 @@
     @include root-style--sub-block-ssd();
     bottom: -100%;
     animation: show--hidden-static-block 1s 0.5s ease both;
-    &__block-user-avatar {
-      @include nested-style--block-user-avatar();
-      animation: show--avatar-user-and-title 1s 1s ease both;
-    }
+
     &__wrap-title {
       @include nested-style--wrap-title();
-      animation: show--avatar-user-and-title 1s 1.5s ease both;
+      animation: show--avatar-user-and-title 1s 1s ease both;
     }
     &__reverse-background {
       @include nested-style--reverse-background();
@@ -241,6 +291,27 @@
       @include nested-style--reverse-background();
       animation: show--background 1s ease both;
       transition: all 0.7s ease;
+    }
+    &__my-link {
+      width: 100%;
+      height: 70px;
+      top: 0;
+      display: grid;
+      grid-auto-flow: column;
+      align-self: flex-end;
+      z-index: 1000;
+      grid-column: 1;
+      font-size: 20px;
+      text-align: center;
+      color: #898989;
+      transition: all .3s ease;
+      i {
+        align-self: center;
+        &:hover {
+          color: $COLOR2;
+          transition: all .3s ease;
+        }
+      }
     }
   }
   .sub-block-sds--disabled {
