@@ -23,7 +23,7 @@ class SubBlockMainDescription extends React.Component {
   }
 
   render() {
-    const { renderElement, imageBackground, lastBackground, nextBackground } = this.state
+    const { renderElement, imageBackground, lastBackground, nextBackground } = this.state;
     return (
       <>
         <div className={`--sds__reverse-background`} style={{
@@ -94,12 +94,12 @@ class SubBlockMainDescription extends React.Component {
         <div className={`--sds__my-link`}>
           <span></span>
           <span></span>
-          <a href="https://vk.com/we_get"><i class="fa fa-vk" aria-hidden="true"></i></a>
-          <a href="https://www.pinterest.ru/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-          <a href="https://ru-ru.facebook.com/"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-          <a href="https://mail.rambler.ru/folder/INBOX"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-          <a href="https://www.instagram.com/?hl=ru"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://github.com/we-get-root"><i class="fa fa-github" aria-hidden="true"></i></a>
+          <a href="https://vk.com/we_get"><i className="fa fa-vk" aria-hidden="true"></i></a>
+          <a href="https://www.pinterest.ru/"><i className="fa fa-pinterest" aria-hidden="true"></i></a>
+          <a href="https://ru-ru.facebook.com/"><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
+          <a href="https://mail.rambler.ru/folder/INBOX"><i className="fa fa-envelope" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/?hl=ru"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://github.com/we-get-root"><i className="fa fa-github" aria-hidden="true"></i></a>
         </div>
       </>
     )

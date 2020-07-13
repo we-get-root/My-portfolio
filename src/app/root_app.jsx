@@ -61,6 +61,8 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     startRender,
   } = renderElement;
 
+
+  
   return (
     <section className={`root-wrapper`}>
 

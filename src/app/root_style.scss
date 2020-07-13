@@ -142,6 +142,7 @@
         min-height: 220px;
         border-radius: 10px;
         margin: 10px;
+        position: relative;
         background: rgba($color: #afafaf, $alpha: 0.3);
         h2 {
           font-family: "BebasNeue-Regular", sans-serif;
@@ -185,6 +186,24 @@
           img {
             width: 250px;
             height: auto;
+          }
+        }
+        &__link-them {
+          position: absolute;
+          bottom: 10px;
+          left: 38px;
+          font-size: 18px;
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: 40px;
+          a {
+            color: #5e5e5e;
+            &:active {
+              color: #5e5e5e;
+            }
+          }
+          i:hover {
+            color: $COLOR;
           }
         }
       }
@@ -304,12 +323,12 @@
       font-size: 20px;
       text-align: center;
       color: #898989;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       i {
         align-self: center;
         &:hover {
           color: $COLOR2;
-          transition: all .3s ease;
+          transition: all 0.3s ease;
         }
       }
     }
