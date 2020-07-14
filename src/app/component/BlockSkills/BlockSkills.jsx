@@ -59,10 +59,10 @@ function BlockSkills({ ...props }) {
       </div>
       <div className={`--wss__block-html --html`}>
         <div className={`--html__col-one`}>
-          <p>современные стандарты ES6</p>
+          <p>Браузерные хранилища</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>дополнительные фишки native object</p>
+          <p>контекст this привязка call/apply</p>
         </div>
         <div className={`--html__col-one`}>
           <p>обработка ошибок try/catches </p>
@@ -83,10 +83,16 @@ function BlockSkills({ ...props }) {
           <p>модульность кода</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>контекст this привязка call/apply</p>
+          <p>Современные стандарты ES6+</p>
         </div>
         <div className={`--html__col-one`}>
           <p>прототипное наследование __proto__ get/setPrototypeOf</p>
+        </div>
+        <div className={`--html__col-three`}>
+          <p>дополнительные фишки native object</p>
+        </div>
+        <div className={`--html__col-one`}>
+          <p>Нативная работа с DOM</p>
         </div>
         <div className={`--html__col-three`}>
           <p>promise цепочки promise</p>
@@ -99,7 +105,7 @@ function BlockSkills({ ...props }) {
           <p>Методы жизненного цикла</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>функциональный классовые компоненты</p>
+          <p>передача контекста </p>
         </div>
         <div className={`--html__col-one`}>
           <p>переиспользоваемость кода</p>
@@ -111,7 +117,7 @@ function BlockSkills({ ...props }) {
           <p>files manages</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>умение оптимизировать компоненты</p>
+          <p>оптимизация компоненты</p>
         </div>
         <div className={`--html__col-two-js`}>
           <h3>ReactJS</h3>
@@ -120,13 +126,16 @@ function BlockSkills({ ...props }) {
           <p>осознанное использование JSX</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>ленивая загрузка компонент</p>
+          <p>lazy load</p>
         </div>
         <div className={`--html__col-one`}>
-          <p>передача контекста</p>
+          <p>функциональный классовые компоненты</p>
         </div>
         <div className={`--html__col-three`}>
           <p>немного понимаю как React работает изнутри</p>
+        </div>
+        <div className={`--html__additional-description`}>
+          <p>Понимаю как React устроен изнутри, и как она использует метод согласования при изменении в DOM. Как не допустить утечки памяти при перерисовке компонент. Эти знания дают возможность писать отзывчивый и плавный интерфейс.</p>
         </div>
         <span></span>
 
@@ -142,10 +151,10 @@ function BlockSkills({ ...props }) {
           <h3>SASS</h3>
         </div>
         <div className={`--html__col-one`}>
-          <p>создание mixin во избежание дублирования</p>
+          <p>mixin</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>привязка контекста к родительскому селектору</p>
+          <p>привязка контекста</p>
         </div>
         <span></span>
       </div>
@@ -162,11 +171,9 @@ function BlockSkills({ ...props }) {
         <div className={`--html__col-three`}>
           <p>React Router DOM</p>
         </div>
-
         <div className={`--html__col-two-js`}>
           <h3>library</h3>
         </div>
-
         <div className={`--html__col-one`}>
           <p>ReactJS</p>
         </div>
@@ -179,11 +186,30 @@ function BlockSkills({ ...props }) {
         <div className={`--html__col-three`}>
           <p>ReduxJS</p>
         </div>
-        <div className={`--html__additional-description`}> 
+        <div className={`--html__additional-description`}>
           <p>Cписок этих библиотек мал, но это тот инструментарий который покрывает 80% моих нужд на проекте. Приводить полный список я не вижу смысла. Если в этом списке нет того, что требуется вам, я готов освоить и подтянуть то что вам нужно.</p>
         </div>
         <span></span>
       </div>
+      <div className={`--wss__block-html --html`}>
+        <div className={`--html__col-one`}>
+          <p>ветвление проекта</p>
+        </div>
+        <div className={`--html__col-three`}>
+          <p>контроль версии</p>
+        </div>
+        <div className={`--html__col-two--scss`}>
+          <h3>git</h3>
+        </div>
+        <div className={`--html__col-one`}>
+          <p>github pages</p>
+        </div>
+        <div className={`--html__col-three`}>
+          <p>работа с командной строкой</p>
+        </div>
+        <span></span>
+      </div>
+
       <div className={`--wss__block-html --html`}>
         <div className={`--html__col-one`}>
           <p>figma</p>
@@ -216,7 +242,7 @@ function BlockSkills({ ...props }) {
           <p>Работа с Back-end на NodeJS</p>
         </div>
         <div className={`--html__col-three`}>
-          <p>Подключение баз данных MySQL and MongoDB</p>
+          <p>базы данных MySQL and MongoDB</p>
         </div>
         <span></span>
       </div>

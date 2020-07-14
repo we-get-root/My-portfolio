@@ -38,11 +38,11 @@
     width: 100%;
     &__logotype {
       @include header-nav-block__logotype();
-      animation: header-nav-block-logotype 2s ease both;
+      animation: header-nav-block-logotype 1.7s .2s ease both;
     }
     &__logotype--active-nav {
       @include header-nav-block__logotype();
-      animation: header-block__logotype__active-nav-menu 2s ease both;
+      animation: header-block__logotype__active-nav-menu 1.7s .3s ease both;
     }
     &__nav-left {
       @include header-nav-block__nav-menu();
@@ -70,10 +70,14 @@
   .section-detail-description--active,
   .--ssd {
     @include root-style--section-detail-description();
-    animation: show--section-detail-description 1s ease both;
-    &__nav-menu {
-      @include nested-style--nav-menu();
-      text-transform: uppercase;
+    animation: show--section-detail-description .7s .3s ease both;
+    &__container-nav, .--cn,
+    .--cn {
+      grid-column: 1 / 4;
+      &__nav-menu {
+        @include nested-style--nav-menu();
+        text-transform: uppercase;
+      }
     }
     &__separator-header {
       @include nested-style--separator-nav();
@@ -137,75 +141,7 @@
       grid-auto-flow: row;
       &__card-description,
       .--cd {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        min-height: 220px;
-        border-radius: 10px;
-        margin: 10px;
-        position: relative;
-        background: rgba($color: #afafaf, $alpha: 0.3);
-        h2 {
-          font-family: "BebasNeue-Regular", sans-serif;
-          font-size: 40px;
-          margin: 0;
-          padding: 15px;
-          color: $COLOR;
-          padding-bottom: 0;
-        }
-        $round-width: (
-          1: 70%,
-          2: 50%,
-          3: 100%,
-          4: 80%,
-        );
-        ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          padding-left: 5%;
-          li {
-            background: #bfbfbf;
-            color: $COLOR;
-            font-size: 14px;
-            font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
-            margin: 5px;
-            padding-left: 10px;
-            border-radius: 10em;
-            @each $index, $width in $round-width {
-              &:nth-last-child(#{$index}) {
-                width: $width;
-              }
-            }
-          }
-        }
-        &__decor-column {
-          grid-column: 2;
-          z-index: -10;
-          display: block;
-          margin: auto;
-          img {
-            width: 250px;
-            height: auto;
-          }
-        }
-        &__link-them {
-          position: absolute;
-          bottom: 10px;
-          left: 38px;
-          font-size: 18px;
-          display: grid;
-          grid-auto-flow: column;
-          grid-auto-columns: 40px;
-          a {
-            color: #5e5e5e;
-            &:active {
-              color: #5e5e5e;
-            }
-          }
-          i:hover {
-            color: $COLOR;
-          }
-        }
+        @include nested-style--card-item();
       }
     }
     // =============================================================<<
@@ -219,56 +155,7 @@
       grid-auto-flow: row;
       &__card-description,
       .--cd {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        min-height: 220px;
-        border-radius: 10px;
-        margin: 10px;
-        background: rgba($color: #afafaf, $alpha: 0.3);
-        h2 {
-          font-family: "BebasNeue-Regular", sans-serif;
-          font-size: 40px;
-          margin: 0;
-          padding: 15px;
-          color: $COLOR;
-          padding-bottom: 0;
-        }
-        $round-width: (
-          1: 70%,
-          2: 50%,
-          3: 100%,
-          4: 80%,
-        );
-        ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          padding-left: 5%;
-          li {
-            background: #bfbfbf;
-            color: $COLOR;
-            font-size: 14px;
-            font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
-            margin: 5px;
-            padding-left: 10px;
-            border-radius: 10em;
-            @each $index, $width in $round-width {
-              &:nth-last-child(#{$index}) {
-                width: $width;
-              }
-            }
-          }
-        }
-        &__decor-column {
-          grid-column: 2;
-          z-index: -10;
-          display: block;
-          margin: auto;
-          img {
-            width: 250px;
-            height: auto;
-          }
-        }
+        @include nested-style--card-item();
       }
     }
     // This block has its own styles, which lie in root block.
@@ -278,6 +165,55 @@
       @include root-style--main-block-description();
     }
     // =============================================================<<
+
+    &__main-block-blog,
+    .--mbb {
+      @include root-style--main-block-description();
+      display: grid;
+      position: relative;
+      &__wrapper-post,
+      .--wp {
+        height: auto;
+        border: 1px solid #8c8c8c;
+        margin: 10px;
+        padding: 20px;
+        position: relative;
+        border-radius: 10px;
+        h2 {
+          font-family: "BebasNeue-Regular", sans-serif;
+          font-size: 50px;
+          margin: 0;
+          color: $COLOR;
+        }
+        p {
+          margin: 0;
+          color: #5b5b5b;
+          font-size: 16px;
+          padding-bottom: 10px;
+          line-height: 25px;
+          font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
+        }
+        &__post-cover {
+          width: 100%;
+          height: 200px;
+          background: #898989;
+          border-radius: 10px;
+          background-size: 100% auto;
+          background-position: center;
+          align-self: flex-end;
+          margin-top: 5px;
+        }
+        &__hash-tag {
+          display: block;
+          font-size: 13px;
+          a {
+            font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
+            color: #898989;
+            padding: 10px;
+          }
+        }
+      }
+    }
   }
 
   // styles for a disabled information block. Changes only animation.
@@ -297,7 +233,7 @@
   .--sds {
     @include root-style--sub-block-ssd();
     bottom: -100%;
-    animation: show--hidden-static-block 1s 0.5s ease both;
+    animation: show--hidden-static-block .8s 1s ease both;
 
     &__wrap-title {
       @include nested-style--wrap-title();

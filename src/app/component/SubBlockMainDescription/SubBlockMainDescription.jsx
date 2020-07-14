@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SubBlockMainDescription extends React.Component {
+class SubBlockMainDescription extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -70,7 +70,7 @@ class SubBlockMainDescription extends React.Component {
         {renderElement.renderBlockWork &&
           <>
             <div className={`--sds__wrap-title`}>
-              <h2>experience works</h2>
+              <h2>exp works</h2>
               <span>here described my work experience </span>
             </div>
           </>

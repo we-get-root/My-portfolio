@@ -26,13 +26,27 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     renderBlockContact: false,
     renderBlockWork: false,
   }
-  
+
   const currentBlockAboutMe = useRef(null)
   const [renderElement, setRenderElement] = useState(listAllSection)
 
   const switchElement = (whatElementSwitch) => {
-    setRenderElement({ ...listAllSection, startRender: true, [!whatElementSwitch ? 'renderBlockAboutMe' : whatElementSwitch]: true })
+    let render = false;
+
+    for (let key in renderElement) {
+      if (!renderElement.startRender) {
+        render = true
+        break
+      }
+      if (renderElement[key]) {
+        render = (whatElementSwitch !== key && Boolean(whatElementSwitch)) ? true : false
+      }
+    }
+    if (render) {
+      setRenderElement({ ...listAllSection, startRender: true, [whatElementSwitch]: true })
+    } else return false;
   }
+
   const followingElement = () => {
     const keysRenderElement = Object.keys(renderElement).filter((value) => value !== 'startRender')
     for (let i = 0; i < keysRenderElement.length; i++) {
@@ -61,8 +75,8 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     startRender,
   } = renderElement;
 
+  console.log('rrr')
 
-  
   return (
     <section className={`root-wrapper`}>
 
@@ -95,21 +109,23 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
         </div>
       </header>
 
-      <section className={`--sdd section-detail-description--${startRender ? 'active ' : 'disable'}`}>
+      <main className={`--sdd section-detail-description--${startRender ? 'active ' : 'disable'}`}>
 
-        <ul className={`--ssd__nav-menu`} onClick={(event) => switchElement(event.target.dataset.name)}>
-          <li data-name="renderBlockAboutMe" data-active={renderBlockAboutMe ? 'active' : 'disabled'}>aboutme</li>
-          <li data-name="renderBlockPortfolio" data-active={renderBlockPortfolio ? 'active' : 'disabled'}>portfolio</li>
-          <li data-name="renderBlockEducation" data-active={renderBlockEducation ? 'active' : 'disabled'}>education</li>
-          <li data-name="renderBlockSkills" data-active={renderBlockSkills ? 'active' : 'disabled'}>skills</li>
-          <li data-name="renderBlockWork" data-active={renderBlockWork ? 'active' : 'disabled'}>work</li>
-          <li data-name="renderBlockContact" data-active={renderBlockContact ? 'active' : 'disabled'}>contact</li>
-          <li data-name="renderBlockBlog" data-active={renderBlockBlog ? 'active' : 'disabled'}>blog</li>
-        </ul>
+        <nav className={`--ssd__container-nav --cn`}>
+          <ul className={`--cn__nav-menu`} onClick={(event) => switchElement(event.target.dataset.name)}>
+            <li data-name="renderBlockAboutMe" data-active={renderBlockAboutMe ? 'active' : 'disabled'}>aboutme</li>
+            <li data-name="renderBlockPortfolio" data-active={renderBlockPortfolio ? 'active' : 'disabled'}>portfolio</li>
+            <li data-name="renderBlockEducation" data-active={renderBlockEducation ? 'active' : 'disabled'}>education</li>
+            <li data-name="renderBlockSkills" data-active={renderBlockSkills ? 'active' : 'disabled'}>skills</li>
+            <li data-name="renderBlockWork" data-active={renderBlockWork ? 'active' : 'disabled'}>work</li>
+            <li data-name="renderBlockContact" data-active={renderBlockContact ? 'active' : 'disabled'}>contact</li>
+            <li data-name="renderBlockBlog" data-active={renderBlockBlog ? 'active' : 'disabled'}>blog</li>
+          </ul>
+        </nav>
 
         <span className={`--ssd__separator-header`}></span>
 
-        {renderBlockAboutMe ? <div onScroll={handlerBlockAddEffectParallax} className={`--ssd__main-block-description --mbd`}> 
+        {renderBlockAboutMe ? <div onScroll={handlerBlockAddEffectParallax} className={`--ssd__main-block-description --mbd`}>
           <BlockAboutMe currentBlockAboutMe={currentBlockAboutMe} />
         </div> : null}
         {renderBlockPortfolio ? <div className={`--ssd__main-block-portfolio --mbp`}>
@@ -138,7 +154,7 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
           className={`--ssd__button-switch-block`} >
           <p>following</p>
         </button>
-      </section>
+      </main>
 
       <div className={`sub-block-ssd--${startRender ? 'active' : 'disabled'} --sbs`} >
         {startRender && <SubBlockMainDescription

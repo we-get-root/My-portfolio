@@ -16,7 +16,6 @@
   list-style: none;
   padding: 0;
   text-align: center;
-  grid-column: 1 / 4;
   align-self: center;
   grid-row: 1;
   margin: auto;
@@ -73,6 +72,77 @@
   }
 }
 
+@mixin nested-style--card-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  min-height: 220px;
+  border-radius: 10px;
+  margin: 10px;
+  background: rgba($color: #afafaf, $alpha: 0.3);
+  position: relative;
+  h2 {
+    font-family: "BebasNeue-Regular", sans-serif;
+    font-size: 40px;
+    margin: 0;
+    padding: 15px;
+    color: $COLOR;
+    padding-bottom: 0;
+  }
+  $round-width: (
+    1: 70%,
+    2: 50%,
+    3: 100%,
+    4: 80%,
+  );
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 5%;
+    li {
+      background: #bfbfbf;
+      color: $COLOR;
+      font-size: 14px;
+      font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
+      margin: 5px;
+      padding-left: 10px;
+      border-radius: 10em;
+      @each $index, $width in $round-width {
+        &:nth-last-child(#{$index}) {
+          width: $width;
+        }
+      }
+    }
+  }
+  &__decor-column {
+    grid-column: 2;
+    z-index: -10;
+    display: block;
+    margin: auto;
+    img {
+      width: 250px;
+      height: auto;
+    }
+  }
+  &__link-them {
+    position: absolute;
+    bottom: 10px;
+    left: 38px;
+    font-size: 18px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 40px;
+    a {
+      color: #5e5e5e;
+      &:active {
+        color: #5e5e5e;
+      }
+    }
+    i:hover {
+      color: $COLOR;
+    }
+  }
+}
 
 // animation block
 @keyframes show--main-block-description {

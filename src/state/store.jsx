@@ -46,7 +46,7 @@ export const getResourcesPage = () => (dispatch) => {
     }),
     new Promise((resolve, reject) => {
       const result = []
-      for (let i = 1; i <= 7; i++) {
+      for (let i = 1; i <= 8; i++) {
         result.push(require(`./../sours/background/${i}.jpg`))
       }
       resolve(result)
