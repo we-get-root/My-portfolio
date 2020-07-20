@@ -40,6 +40,7 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
       }
       if (renderElement[key]) {
         render = (whatElementSwitch !== key && Boolean(whatElementSwitch)) ? true : false
+        break
       }
     }
     if (render) {
@@ -60,6 +61,12 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     currentBlockAboutMe.current.style.top = `${event.target.scrollTop / 2}px`
   }
 
+  window.onscroll = () => {
+    if (window.pageYOffset > 50 && !renderElement.startRender) {
+      setRenderElement({ ...listAllSection, startRender: true, renderBlockAboutMe: true })
+    } else return false
+  }
+
   useEffect(() => {
     if (!imageCarousel.length && !imageBackground.length && !loading) getResourcesPage()
   }, [imageCarousel, imageBackground, getResourcesPage, loading])
@@ -74,8 +81,6 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
     renderBlockWork,
     startRender,
   } = renderElement;
-
-  console.log('rrr')
 
   return (
     <section className={`root-wrapper`}>
@@ -109,7 +114,7 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
         </div>
       </header>
 
-      <main className={`--sdd section-detail-description--${startRender ? 'active ' : 'disable'}`}>
+      <article className={`--sdd section-detail-description--${startRender ? 'active ' : 'disable'}`}>
 
         <nav className={`--ssd__container-nav --cn`}>
           <ul className={`--cn__nav-menu`} onClick={(event) => switchElement(event.target.dataset.name)}>
@@ -125,27 +130,27 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
 
         <span className={`--ssd__separator-header`}></span>
 
-        {renderBlockAboutMe ? <div onScroll={handlerBlockAddEffectParallax} className={`--ssd__main-block-description --mbd`}>
+        {renderBlockAboutMe ? <section onScroll={handlerBlockAddEffectParallax} className={`--ssd__main-block-description --mbd`}>
           <BlockAboutMe currentBlockAboutMe={currentBlockAboutMe} />
-        </div> : null}
-        {renderBlockPortfolio ? <div className={`--ssd__main-block-portfolio --mbp`}>
+        </section> : null}
+        {renderBlockPortfolio ? <section className={`--ssd__main-block-portfolio --mbp`}>
           <BlockCarousel imageCarousel={imageCarousel} />
-        </div> : null}
-        {renderBlockEducation ? <div className={`--ssd__main-block-education --mbe`}>
+        </section> : null}
+        {renderBlockEducation ? <section className={`--ssd__main-block-education --mbe`}>
           <BlockEducation />
-        </div> : null}
-        {renderBlockContact ? <h1 className={`--ssd__main-block-contact --mbc`}>
+        </section> : null}
+        {renderBlockContact ? <section className={`--ssd__main-block-contact --mbc`}>
           <BlockContact />
-        </h1> : null}
-        {renderBlockBlog ? <div className={`--ssd__main-block-blog --mbb`}>
+        </section> : null}
+        {renderBlockBlog ? <section className={`--ssd__main-block-blog --mbb`}>
           <BlockBlog />
-        </div> : null}
-        {renderBlockSkills ? <div className={`--ssd__main-block-skills --mbs`}>
+        </section> : null}
+        {renderBlockSkills ? <section className={`--ssd__main-block-skills --mbs`}>
           <BlockSkills />
-        </div> : null}
-        {renderBlockWork ? <div className={`--ssd__main-block-work --mbw`}>
+        </section> : null}
+        {renderBlockWork ? <section className={`--ssd__main-block-work --mbw`}>
           <BlockWork />
-        </div> : null}
+        </section> : null}
 
         <button
           type="button"
@@ -154,7 +159,7 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, loading, ..
           className={`--ssd__button-switch-block`} >
           <p>following</p>
         </button>
-      </main>
+      </article>
 
       <div className={`sub-block-ssd--${startRender ? 'active' : 'disabled'} --sbs`} >
         {startRender && <SubBlockMainDescription

@@ -38,11 +38,11 @@
     width: 100%;
     &__logotype {
       @include header-nav-block__logotype();
-      animation: header-nav-block-logotype 1.7s .2s ease both;
+      animation: header-nav-block-logotype 1.7s 0.2s ease both;
     }
     &__logotype--active-nav {
       @include header-nav-block__logotype();
-      animation: header-block__logotype__active-nav-menu 1.7s .3s ease both;
+      animation: header-block__logotype__active-nav-menu 1.7s 0.3s ease both;
     }
     &__nav-left {
       @include header-nav-block__nav-menu();
@@ -70,8 +70,9 @@
   .section-detail-description--active,
   .--ssd {
     @include root-style--section-detail-description();
-    animation: show--section-detail-description .7s .3s ease both;
-    &__container-nav, .--cn,
+    animation: show--section-detail-description 0.7s 0.3s ease both;
+    &__container-nav,
+    .--cn,
     .--cn {
       grid-column: 1 / 4;
       &__nav-menu {
@@ -158,6 +159,37 @@
         @include nested-style--card-item();
       }
     }
+    &__main-block-contact, .--mds{
+      @include root-style--main-block-description();
+      display: grid;
+      grid-template-rows: 50px 1fr 2fr 50px;
+      grid-auto-flow: row;
+      &__block-form, .--bf {
+        display: grid;
+        grid-template-rows: 40px 1fr;
+        grid-auto-flow: row; 
+        grid-row: 3;
+        h3 {
+          margin: 0;
+        }
+        &__input-field {
+          display: grid;
+          grid-template-columns: 1fr 3fr 2fr;
+          grid-auto-flow: row;
+          grid-row-gap: 20px;
+          grid-auto-rows: 40px;
+          input[type="text"] {
+            grid-column: 2;
+            width: 100%;
+            justify-self: center;
+          }
+          input[type="submit"] {
+            grid-column: 2;
+
+          }
+        }
+      }
+    }
     // This block has its own styles, which lie in root block.
     // =============================================================>>
     &_main-block-skills,
@@ -233,7 +265,7 @@
   .--sds {
     @include root-style--sub-block-ssd();
     bottom: -100%;
-    animation: show--hidden-static-block .8s 1s ease both;
+    animation: show--hidden-static-block 0.8s 1s ease both;
 
     &__wrap-title {
       @include nested-style--wrap-title();
