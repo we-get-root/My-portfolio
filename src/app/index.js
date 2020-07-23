@@ -6,3 +6,4 @@ export { default as BlockCarousel } from './component/BlockCarousel/BlockCarouse
 export { default as BlockWork } from './component/BlockWork/BlockWork';
 export { default as BlockBlog } from './component/BlockBlog/BlockBlog';
 export { default as SubBlockMainDescription } from './component/SubBlockMainDescription/SubBlockMainDescription';
+export { default as StartContainer } from './component/StartContainer/StartContainer';

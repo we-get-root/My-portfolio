@@ -5,6 +5,16 @@ const initialState = {
   imageCarousel: [],
   imageBackground: [],
   loading: false,
+  listAllSection: {
+    startRender: false,
+    renderBlockAboutMe: false,
+    renderBlockEducation: false,
+    renderBlockBlog: false,
+    renderBlockPortfolio: false,
+    renderBlockSkills: false,
+    renderBlockContact: false,
+    renderBlockWork: false,
+  }
 }
 
 function mainState(state = initialState, action) {

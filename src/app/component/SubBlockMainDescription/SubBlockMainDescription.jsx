@@ -11,15 +11,16 @@ class SubBlockMainDescription extends React.PureComponent {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.renderElement !== prevProps.renderElement) {
+  shouldComponentUpdate(nextProps) {
+    if (this.props.renderElement !== nextProps.renderElement) {
       this.setState({
         renderElement: this.props.renderElement,
         imageBackground: this.props.imageBackground,
         lastBackground: (this.state.lastBackground === (this.state.imageBackground.length - 1) ? 0 : this.state.nextBackground),
         nextBackground: (this.state.nextBackground === (this.state.imageBackground.length - 1) ? 0 : (this.state.nextBackground + 1)),
       })
-    }
+    } else return true
+    return false
   }
 
   render() {
