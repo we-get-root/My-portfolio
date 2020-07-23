@@ -21,8 +21,8 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, listAllSect
   const [renderElement, setRenderElement] = useState(listAllSection)
 
   const switchElement = (whatElementSwitch) => {
-    if(renderElement[whatElementSwitch]) return false
-    else   setRenderElement({ ...listAllSection, startRender: true, [whatElementSwitch]: true })
+    if (renderElement[whatElementSwitch]) return false
+    else setRenderElement({ ...listAllSection, startRender: true, [whatElementSwitch]: true })
   }
 
   const followingElement = () => {
@@ -95,40 +95,38 @@ function RootApp({ imageCarousel, imageBackground, getResourcesPage, listAllSect
         switchElement={switchElement}
         followingElement={followingElement}
         renderElement={renderElement}>
-        {renderBlockAboutMe ? <section onScroll={handlerBlockAddEffectParallax} className={`--ssd__main-block-description --mbd`}>
+        {renderBlockAboutMe ? <section onScroll={handlerBlockAddEffectParallax} className={`--cbi__main-block-about-me --mba`}>
           <BlockAboutMe currentBlockAboutMe={currentBlockAboutMe} />
         </section> : null}
-        {renderBlockPortfolio ? <section className={`--ssd__main-block-portfolio --mbp`}>
+        {renderBlockPortfolio ? <section className={`--cbi__main-block-portfolio --mbp`}>
           <BlockCarousel imageCarousel={imageCarousel} />
         </section> : null}
-        {renderBlockEducation ? <section className={`--ssd__main-block-education --mbe`}>
+        {renderBlockEducation ? <section className={`--cbi__main-block-education --mbe`}>
           <BlockEducation />
         </section> : null}
-        {renderBlockContact ? <section className={`--ssd__main-block-contact --mbc`}>
+        {renderBlockContact ? <section className={`--cbi__main-block-contact --mbc`}>
           <BlockContact />
         </section> : null}
-        {renderBlockBlog ? <section className={`--ssd__main-block-blog --mbb`}>
+        {renderBlockBlog ? <section className={`--cbi__main-block-blog --mbb`}>
           <BlockBlog />
         </section> : null}
-        {renderBlockSkills ? <section className={`--ssd__main-block-skills --mbs`}>
+        {renderBlockSkills ? <section className={`--cbi__main-block-skills --mbs`}>
           <BlockSkills />
         </section> : null}
-        {renderBlockWork ? <section className={`--ssd__main-block-work --mbw`}>
+        {renderBlockWork ? <section className={`--cbi__main-block-work --mbw`}>
           <BlockWork />
         </section> : null}
 
       </StartContainer>
 
       <div className={`sub-block-ssd--${startRender ? 'active' : 'disabled'} --sbs`} >
-        {startRender && <SubBlockMainDescription
-          renderElement={renderElement}
-          imageBackground={imageBackground} />}
-      </div>
-
+        {startRender &&
+          <SubBlockMainDescription
+            renderElement={renderElement}
+            imageBackground={imageBackground} />}</div>
     </section>
   )
 }
-
 
 export default connect((state) => ({
   imageCarousel: state.mainState.imageCarousel,
@@ -136,35 +134,3 @@ export default connect((state) => ({
   listAllSection: state.mainState.listAllSection,
   loading: state.mainState.loading,
 }), ({ getResourcesPage }))(RootApp);
-
-
-
-/**
- *
- * @param {scroll} this block code to do switch block
- */
-
-// function interceptionScrollRoundingCheck() {
-//
-//   const listBlock = [{ widthScroll: 0, render: false }, { widthScroll: 3000, render: false }, { widthScroll: 6000, render: false }, { widthScroll: 9000, render: false }, { widthScroll: 12000, render: false }, { widthScroll: 15000, render: false }, { widthScroll: 18000, render: false },]
-//   const [hiddenBlockAboutMe, setHiddenBlockAboutMe] = useState(false)
-//   const [positionScroll, setPositionScroll] = useState(0)
-//   const [activeBlock, setActiveBlock] = useState(listBlock)
-//  
-//   for (let i = 0; i < listBlock.length; i++) {
-//     if (listBlock[i].widthScroll === positionScroll && !activeBlock[i].render) {
-//       setActiveBlock([...listBlock, listBlock[i].render = true])
-//       break;
-//     } else if (listBlock[i].widthScroll > positionScroll && activeBlock[i].render) {
-//       setActiveBlock([...listBlock, listBlock[i - 1].render = true])
-//       break;
-//     } else continue;
-//   }
-//   if (positionScroll === listBlock[1].widthScroll && !hiddenBlockAboutMe) setHiddenBlockAboutMe(true)
-//   else if (positionScroll < listBlock[1].widthScroll && hiddenBlockAboutMe) setHiddenBlockAboutMe(false)
-//
-//   useEffect(() => {
-//     const id = setInterval(() => { setPositionScroll(Math.floor(window.pageYOffset) - (Math.floor(window.pageYOffset) % 1000)) }, 100)
-//     return () => clearInterval(id)
-//   }, [setPositionScroll])
-// }

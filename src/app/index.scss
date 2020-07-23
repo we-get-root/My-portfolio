@@ -1,9 +1,10 @@
-@import "./component/mixin_ssd.scss";
+@import './component/common_mixin.scss';
 @import "./component/mixin_hnb.scss";
 @import "./component/SubBlockMainDescription/mixin_sds.scss";
 @import "./component/BlockCarousel/mixin_mbp.scss";
 @import "./component/BlockAboutMe/mixin_mbd.scss";
 @import "./component/BlockWork//mixin_mbw.scss";
+@import "./component//StartContainer/group_style.scss";
 
 $COLOR: #393939;
 $COLOR2: #dcdcdc;

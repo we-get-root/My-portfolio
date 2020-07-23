@@ -16,11 +16,11 @@ function BlockWork({ ...props }) {
             <li></li>
           </ul>
           <div className={`--cd__link-them`}>
-            <a href="https://www.instagram.com/edmccain.wa"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/em__wa"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/edmccain.wa"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-            <a href="https://edwardmccain.ru/"><i class="fa fa-share-alt-square" aria-hidden="true"></i></a>
-            <a href="https://vk.com/ed_mccain_wa"><i class="fa fa-vk" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/edmccain.wa"><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+            <a href="https://twitter.com/em__wa"><i class="fa fa-twitter-square" aria-hidden="true"></i> </a>
+            <a href="https://www.facebook.com/edmccain.wa"><i class="fa fa-facebook-square" aria-hidden="true"></i> </a>
+            <a href="https://edwardmccain.ru/"><i class="fa fa-share-alt-square" aria-hidden="true"></i> </a>
+            <a href="https://vk.com/ed_mccain_wa"><i class="fa fa-vk" aria-hidden="true"></i> </a>
           </div>
         </div>
         <div className={`--cd__decor-column`}>
@@ -38,10 +38,10 @@ function BlockWork({ ...props }) {
           </ul>
         </div>
         <div className={`--cd__link-them`}>
-          <a href="https://google.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://google.com"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-          <a href="https://google.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-          <a href="https://google.com"><i class="fa fa-share-alt-square" aria-hidden="true"></i></a>
+          <a href="https://google.com"><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+          <a href="https://google.com"><i class="fa fa-twitter-square" aria-hidden="true"></i> </a>
+          <a href="https://google.com"><i class="fa fa-facebook-square" aria-hidden="true"></i> </a>
+          <a href="https://google.com"><i class="fa fa-share-alt-square" aria-hidden="true"></i> </a>
           <a href="https://google.com"><i class="fa fa-vk" aria-hidden="true"></i></a>
         </div>
         <div className={`--cd__decor-column`}>

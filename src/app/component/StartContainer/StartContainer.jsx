@@ -2,10 +2,10 @@ import React from 'react';
 
 function StartContainer({ switchElement, renderElement, followingElement, ...props }) {
   return (
-    <article className={`--sdd section-detail-description--${renderElement.startRender ? 'active ' : 'disable'}`}>
+    <article className={`--cbi container-basic-information--${renderElement.startRender ? 'active ' : 'disable'}`}>
 
-      <nav className={`--ssd__container-nav --cn`}>
-        <ul className={`--cn__nav-menu`} onClick={(event) => switchElement(event.target.dataset.name)}>
+      <nav className={`--cbi__menu-basic-container --mbc`}>
+        <ul className={`--mbc__nav-menu`} onClick={(event) => switchElement(event.target.dataset.name)}>
           <li data-name="renderBlockAboutMe" data-active={renderElement.renderBlockAboutMe ? 'active' : 'disabled'}>aboutme</li>
           <li data-name="renderBlockPortfolio" data-active={renderElement.renderBlockPortfolio ? 'active' : 'disabled'}>portfolio</li>
           <li data-name="renderBlockEducation" data-active={renderElement.renderBlockEducation ? 'active' : 'disabled'}>education</li>
@@ -15,7 +15,7 @@ function StartContainer({ switchElement, renderElement, followingElement, ...pro
           <li data-name="renderBlockBlog" data-active={renderElement.renderBlockBlog ? 'active' : 'disabled'}>blog</li>
         </ul>
       </nav>
-      <span className={`--ssd__separator-header`}></span>
+      <span className={`--cbi__separator-header`}></span>
 
       {props.children}
 
@@ -23,7 +23,7 @@ function StartContainer({ switchElement, renderElement, followingElement, ...pro
         type="button"
         value="following"
         onClick={followingElement}
-        className={`--ssd__button-switch-block`} >
+        className={`--cbi__button-switch-block`} >
         <p>following</p>
       </button>
     </article>

@@ -1,0 +1,96 @@
+@mixin __container-basic-information {
+  position: relative;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr repeat(2, 5fr) 1fr;
+  grid-template-rows: 70px 2px auto;
+  height: 100%;
+  background: #ffffff;
+  right: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+@mixin __menu-basic-container {
+  grid-column: 1 / 4;
+  &__nav-menu {
+    display: grid;
+    grid-auto-flow: column;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    align-self: center;
+    grid-row: 1;
+    margin: auto;
+    li {
+      display: inline-block;
+      margin: 20px;
+      font-family: "BebasNeue-Regular", Arial, Helvetica, sans-serif;
+      position: relative;
+      cursor: pointer;
+      white-space: normal;
+    }
+    li[data-active="active"] {
+      transition: all 0.5s ease;
+      font-size: 50px;
+      margin-top: 8px;
+    }
+    li[data-active="disabled"] {
+      transition: all 0.5s ease;
+      font-size: 2rem;
+    }
+  }
+}
+@mixin __separator-header {
+  grid-column: 1 / 5;
+  width: 100%;
+  grid-row: 2;
+  height: 1.3px;
+  background: $COLOR;
+  display: block;
+}
+@mixin __button-switch-block {
+  grid-column: 1;
+  background: transparent;
+  grid-row: 2 / 4;
+  border: none;
+  margin-right: 15px;
+  outline: none;
+  width: 60px;
+  text-align: center;
+  position: relative;
+  border-right: 1px solid $COLOR;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  &:hover {
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  p {
+    font-family: "BebasNeue-Regular", sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 0;
+    letter-spacing: 5px;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes show--container-basic-information {
+  from {
+    width: 0%;
+    display: block;
+  }
+  to {
+    width: 65%;
+  }
+}
+@keyframes hide--container-basic-information {
+  from {
+    width: 65%;
+  }
+  to {
+    width: 0%;
+    display: none;
+  }
+}
+

@@ -1,11 +1,11 @@
-@mixin root-style--main-block-portfolio {
+@mixin __main-block-portfolio {
   width: 97%;
   height: 100%;
   overflow: hidden;
   grid-column: 2 / 5;
   position: relative;
 }
-@mixin nested-style--wrap-carousel-item { 
+@mixin __wrap-carousel-item { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 300%;
@@ -48,7 +48,7 @@
     }
   }
 }
-@mixin nested-style--block-button-carousel {
+@mixin __block-button-carousel {
   margin: auto;
   bottom: 40px;
   width: 300px;

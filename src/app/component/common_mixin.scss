@@ -1,0 +1,118 @@
+@mixin COMMON__container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
+  grid-column: 2 / 5;
+  position: relative;
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 3px;
+    border-radius: 10em;
+  }
+  &::-webkit-scrollbar-button {
+    background-color: #ffffff;
+    height: 1px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    height: 100px;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 13px;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: #ffffff;
+  }
+  &::-webkit-resizer {
+    background-color: #ffffff;
+  }
+}
+@mixin COMMON__card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  min-height: 220px;
+  border-radius: 10px;
+  margin: 10px;
+  background: rgba($color: #afafaf, $alpha: 0.3);
+  position: relative;
+  h2 {
+    font-family: "BebasNeue-Regular", sans-serif;
+    font-size: 40px;
+    margin: 0;
+    padding: 15px;
+    color: $COLOR;
+    padding-bottom: 0;
+  }
+  $round-width: (
+    1: 70%,
+    2: 50%,
+    3: 100%,
+    4: 80%,
+  );
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 5%;
+    li {
+      background: #bfbfbf;
+      color: $COLOR;
+      font-size: 14px;
+      font-family: "MuseoSansCyrl", Arial, Helvetica, sans-serif;
+      margin: 5px;
+      padding-left: 10px;
+      border-radius: 10em;
+      @each $index, $width in $round-width {
+        &:nth-last-child(#{$index}) {
+          width: $width;
+        }
+      }
+    }
+  }
+  &__decor-column {
+    grid-column: 2;
+    z-index: -10;
+    display: block;
+    margin: auto;
+    img {
+      width: 250px;
+      height: auto;
+    }
+  }
+  &__link-them {
+    position: absolute;
+    bottom: 10px;
+    left: 38px;
+    font-size: 18px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 40px;
+    a {
+      color: #5e5e5e;
+      &:active {
+        color: #5e5e5e;
+      }
+    }
+    i:hover {
+      color: $COLOR;
+      
+    }
+  }
+}
+
+@keyframes show--animation-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

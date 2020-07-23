@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SubBlockMainDescription extends React.PureComponent {
+class SubBlockMainDescription extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,17 +14,18 @@ class SubBlockMainDescription extends React.PureComponent {
   shouldComponentUpdate(nextProps) {
     if (this.props.renderElement !== nextProps.renderElement) {
       this.setState({
-        renderElement: this.props.renderElement,
-        imageBackground: this.props.imageBackground,
+        renderElement: nextProps.renderElement,
         lastBackground: (this.state.lastBackground === (this.state.imageBackground.length - 1) ? 0 : this.state.nextBackground),
         nextBackground: (this.state.nextBackground === (this.state.imageBackground.length - 1) ? 0 : (this.state.nextBackground + 1)),
       })
-    } else return true
-    return false
+      return false
+    } 
+    return true
   }
 
   render() {
     const { renderElement, imageBackground, lastBackground, nextBackground } = this.state;
+    console.log('render')
     return (
       <>
         <div className={`--sds__reverse-background`} style={{
